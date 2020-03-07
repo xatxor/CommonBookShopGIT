@@ -10,26 +10,25 @@ namespace WebApplication13.Controllers
 {
     public class CalculatorController : Controller
     {
-        // GET: /<controller>/
         [HttpGet]
-        public int Sum(int numb1, int numb2)
+        public List<Book> ViewBooksAndAuthors()
         {
-            return (numb1 + numb2);
+            return BookRepository.ViewBooksAndAuthors();
         }
         [HttpGet]
-        public int Umn(int numb1, int numb2)
+        public List<Book> ViewBooksWithId(int id)
         {
-            return (numb1 * numb2);
+            return BookRepository.ViewBooksWithId(id);
         }
         [HttpGet]
-        public int Min(int numb1, int numb2)
+        public List<Book> ViewAuthorsWithId(int id)
         {
-            return (numb1 - numb2);
+            return BookRepository.ViewAuthorsWithId(id);
         }
-        [HttpGet]
-        public int Del(int numb1, int numb2)
+        [HttpPut]
+        public void AddBook(int id, string name)
         {
-            return (numb1 / numb2);
+            BookRepository.AddBook(id,name);
         }
     }
 }
